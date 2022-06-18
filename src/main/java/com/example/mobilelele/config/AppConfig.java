@@ -9,12 +9,6 @@ import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 
 @Configuration
 public class AppConfig {
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new Pbkdf2PasswordEncoder();
-    }
-
     @Bean
     public ModelMapper modelMapper(){
         return new ModelMapper();

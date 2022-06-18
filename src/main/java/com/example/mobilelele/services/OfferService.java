@@ -6,7 +6,6 @@ import com.example.mobilelele.models.Offer;
 import com.example.mobilelele.repositories.ModelRepository;
 import com.example.mobilelele.repositories.OfferRepository;
 import com.example.mobilelele.repositories.UserRepository;
-import com.example.mobilelele.session.CurrentUser;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,16 +21,15 @@ public class OfferService {
 
     private final UserRepository userRepository;
 
-    private final CurrentUser currentUser;
+
 
     private final ModelRepository modelRepository;
 
     @Autowired
-    public OfferService(OfferRepository offerRepository, ModelMapper modelMapper, UserRepository userRepository, CurrentUser currentUser, ModelRepository modelRepository) {
+    public OfferService(OfferRepository offerRepository, ModelMapper modelMapper, UserRepository userRepository, ModelRepository modelRepository) {
         this.offerRepository = offerRepository;
         this.modelMapper = modelMapper;
         this.userRepository = userRepository;
-        this.currentUser = currentUser;
         this.modelRepository = modelRepository;
     }
 
@@ -56,7 +54,7 @@ public class OfferService {
 
         offer.setId(null);
         offer.setModel(this.modelRepository.findById(dto.getModelId()).get());
-        offer.setSeller(this.userRepository.findByEmail(currentUser.getEmail()).get());
+
         return offer;
 
     }

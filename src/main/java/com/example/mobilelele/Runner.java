@@ -4,7 +4,7 @@ import com.example.mobilelele.enums.CategoryEnum;
 import com.example.mobilelele.enums.RoleEnum;
 import com.example.mobilelele.models.Brand;
 import com.example.mobilelele.models.Model;
-import com.example.mobilelele.models.User;
+import com.example.mobilelele.models.UserEntity;
 import com.example.mobilelele.models.UserRole;
 import com.example.mobilelele.repositories.BrandRepository;
 import com.example.mobilelele.repositories.ModelRepository;
@@ -43,9 +43,9 @@ public class Runner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 //
-//        User user = new User();
-//        User admin = new User();
-//        User mod = new User();
+//        UserEntity user = new UserEntity();
+//        UserEntity admin = new UserEntity();
+//        UserEntity mod = new UserEntity();
 //
 //        UserRole userRole = new UserRole();
 //        UserRole adminRole = new UserRole();
@@ -75,7 +75,6 @@ public class Runner implements CommandLineRunner {
 //                "https://2p2bboli8d61fqhjiqzb8p1a-wpengine.netdna-ssl.com/wp-content/uploads/2022/02/2015-Ferrari-LaFerrari-_0-1140x570.jpg",
 //                "LaFerrari", ferrari, 2019);
 
-
     }
 
     private void createModels(CategoryEnum car, Integer endYear, String imageUrl, String modelName, Brand brand, int startYear) {
@@ -98,14 +97,14 @@ public class Runner implements CommandLineRunner {
     }
 
     public void createUser(String firstName, String lastName, String password, String email, List<UserRole> roles) {
-        User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setPassword(passwordEncoder.encode(password));
-        user.setEmail(email);
-        user.setActive(true);
-        user.setRoles(roles);
-        this.userRepository.save(user);
+        UserEntity userEntity = new UserEntity();
+        userEntity.setFirstName(firstName);
+        userEntity.setLastName(lastName);
+        userEntity.setPassword(passwordEncoder.encode(password));
+        userEntity.setEmail(email);
+        userEntity.setActive(true);
+        userEntity.setRoles(roles);
+        this.userRepository.save(userEntity);
     }
 }
 

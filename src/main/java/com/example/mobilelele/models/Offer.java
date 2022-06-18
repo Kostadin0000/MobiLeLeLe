@@ -2,14 +2,10 @@ package com.example.mobilelele.models;
 
 import com.example.mobilelele.enums.EngineEnum;
 import com.example.mobilelele.enums.TransmissionEnum;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(name = "offers")
@@ -63,7 +59,7 @@ public class Offer {
     private Model model;
 
     @ManyToOne
-    private User seller;
+    private UserEntity seller;
 
     public Offer() {
     }
@@ -133,12 +129,12 @@ public class Offer {
     }
 
 
-    public User getSeller() {
+    public UserEntity getSeller() {
         return seller;
     }
 
-    public void setSeller(User user) {
-        this.seller = user;
+    public void setSeller(UserEntity userEntity) {
+        this.seller = userEntity;
     }
 
     public Long getId() {

@@ -1,16 +1,13 @@
 package com.example.mobilelele.models;
 
-import com.example.mobilelele.enums.RoleEnum;
-
 import javax.persistence.*;
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity {
+public class UserEntity extends BaseEntity {
 
     @Column
     private String email;
@@ -52,7 +49,7 @@ public class User extends BaseEntity {
         setModified(Instant.now());
     }
 
-    public User() {
+    public UserEntity() {
 
     }
 
