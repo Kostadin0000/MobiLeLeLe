@@ -16,16 +16,16 @@
 <div class="container">
 
     <h2 class="text-center text-white">Login</h2>
-    <form   th:object="${userLogin}"
+    <form
             th:action="@{/users/login}"
             th:method="post"
           class="main-form mx-auto col-md-8 d-flex flex-column justify-content-center">
         <div class="form-group">
             <label for="username" class="text-white font-weight-bold">Username</label>
-            <input th:value="*{username}" id="username" name="username" type="text"
+            <input id="username" name="username" type="text"
                    class="form-control"
                    placeholder="Enter username"/>
-            <div th:if="${#fields.hasErrors('username')}">
+            <div >
             <small class="text-danger"> The email should be at least 2 symbols</small>
             </div>
         </div>
@@ -33,12 +33,12 @@
             <label for="password" class="text-white font-weight-bold">Password</label>
             <input  id="password" name="password" type="password" class="form-control"
                    placeholder="Enter password"/>
-            <div th:if="${#fields.hasErrors('password')}">
+            <div >
                 <small class="text-danger"> The password should be at least 5 symbols</small>
             </div>
         </div>
         
-        <p th:if="${notFound}" class="errors alert alert-danger">
+        <p  class="errors alert alert-danger">
             Invalid username or password.
         </p>
 
