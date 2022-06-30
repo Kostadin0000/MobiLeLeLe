@@ -23,10 +23,6 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-
-
-
-
     public void registerAndLogin(RegisterUser registerUser) {
         UserEntity newUserEntity = new UserEntity();
         newUserEntity.setActive(true);
