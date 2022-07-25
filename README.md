@@ -1,5 +1,5 @@
 # MobiLeLeLe
-Spring MVC project
+Spring MVC project without Spring Security
 
 
 ![image](https://user-images.githubusercontent.com/93878824/174438031-f58b03e2-6a08-47fd-a1b9-12719ca97588.png)
